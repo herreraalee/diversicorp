@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Gestión de Ventas</h1>
+<form method="POST">
+    <label>Nombre del Producto:</label><input type="text" name="nombre_producto" required><br>
+    <label>Nombre del Cliente:</label><input type="text" name="nombre_cliente" required><br>
+    <label>Precio Total:</label><input type="number" name="precio_total" step="0.01" required><br>
+    <label>Precio de Compra:</label><input type="number" name="precio_compra" step="0.01" required><br>
+    <button type="submit">Registrar Venta</button>
+</form>
+<h2>Ventas Registradas</h2>
+<table border="1">
+    <tr><th>ID</th><th>Producto</th><th>Cliente</th><th>Total</th><th>Compra</th><th>Estado</th></tr>
+    {% for venta in ventas %}
+    <tr><td>{{ venta[0] }}</td><td>{{ venta[1] }}</td><td>{{ venta[2] }}</td><td>{{ venta[3] }}</td><td>{{ venta[4] }}</td><td>{{ venta[5] }}</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}
